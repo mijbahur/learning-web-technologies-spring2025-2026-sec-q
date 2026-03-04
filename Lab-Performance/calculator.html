@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 427px;
+            margin: 0;
+            background-color: #f4f4f4;
+            margin-top: 40px;
+        }
+
+        #calculator {
+            width: 260px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        #display {
+            width: 90%;
+            height: 40px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            text-align: right;
+            line-height: 40px;
+            font-size: 24px;
+            margin-bottom: 10px;
+            padding: 0 10px;
+            border-radius: 5px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .button {
+            padding: 20px;
+            font-size: 18px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+            width: 55px;
+        }
+
+        .button:hover {
+            background-color: #ddd;
+        }
+
+        .button.operator {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        .button.operator:hover {
+            background-color: #e68900;
+        }
+
+        .button.equal {
+            background-color: #4caf50;
+            color: white;
+            width: 118px;
+        }
+
+        .button.equal:hover {
+            background-color: #45a049;
+        }
+
+        .button.clear {
+            background-color: #f44336;
+            color: white;
+            width: 118px;
+        }
+
+        .button.clear:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        const calculator = document.createElement('div');
+        calculator.id = 'calculator';
+
+        const display = document.createElement('div');
+        display.id = 'display';
+        calculator.appendChild(display);
+
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'button-container';
+        calculator.appendChild(buttonContainer);
+
+        const buttons = [
+            '7', '8', '9', '/',
+            '4', '5', '6', '*',
+            '1', '2', '3', '-',
+            '0', '.', '=', '+',
+            'C'
+        ];
+
+        buttons.forEach(function (button) {
+            const btn = document.createElement('button');
+            btn.className = 'button';
+            btn.innerText = button;
+
+            btn.addEventListener('click', function () {
+                if (button === 'C') {
+                    display.innerText = '';
+                } else if (button === '=') {
+                    try {
+                        display.innerText = eval(display.innerText);
+                    } catch {
+                        display.innerText = 'Error';
+                    }
+                } else {
+                    display.innerText += button;
+                }
+            });
+
+            if (['/', '*', '-', '+'].includes(button)) {
+                btn.classList.add('operator');
+            } else if (button === '=') {
+                btn.classList.add('equal');
+            } else if (button === 'C') {
+                btn.classList.add('clear');
+            }
+
+            buttonContainer.appendChild(btn);
+        });
+
+        document.body.appendChild(calculator);
+    </script>
+
+</body>
+
+</html>
