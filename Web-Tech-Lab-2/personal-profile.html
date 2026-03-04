@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Person Profile</title>
+</head>
+
+<body>
+
+    <h2 align="center">PERSON PROFILE</h2>
+
+    <form onsubmit="return validateForm()">
+
+        <table border="1" cellpadding="10" cellspacing="0" align="center">
+
+            <tr>
+                <td><label for="name">Name</label></td>
+                <td><input type="text" id="name"></td>
+            </tr>
+
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="text" id="email"></td>
+            </tr>
+
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="male" id="male">
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" value="female" id="female">
+                    <label for="female">Female</label>
+                    <input type="radio" name="gender" value="other" id="other">
+                    <label for="other">Other</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Date of Birth</td>
+                <td>
+                    <input type="text" size="2" maxlength="2" id="dd"> /
+                    <input type="text" size="2" maxlength="2" id="mm"> /
+                    <input type="text" size="4" maxlength="4" id="yyyy">
+                    (dd/mm/yyyy)
+                </td>
+            </tr>
+
+            <tr>
+                <td>Blood Group</td>
+                <td>
+                    <select id="bldGroup">
+                        <option value="">Select</option>
+                        <option>A+</option>
+                        <option>B+</option>
+                        <option>AB+</option>
+                        <option>A-</option>
+                        <option>B-</option>
+                        <option>O-</option>
+                        <option>AB-</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Degree</td>
+                <td>
+                    <input type="checkbox" id="SSC">
+                        <label for="SSC">SSC</label>
+                        <input type="checkbox" id="HSC">
+                        <label for="HSC">HSC</label>
+                        <input type="checkbox" id="BSc">
+                        <label for="BSc">BSc.</label>
+                        <input type="checkbox" id="MSc">
+                        <label for="MSc">MSc.</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="photo">Photo</label></td>
+                <td>
+                    <input type="file" id="photo">
+                </td>
+            </tr>
+
+            <tr align="center">
+                <td colspan="2">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+    <script src="JS/script.js"></script>
+
+</body>
+
+</html>

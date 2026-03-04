@@ -8,9 +8,10 @@
 </head>
 
 <body>
-    <form width="190px">
+    <form width="190px" onsubmit="return validateBlood()">
         <label for="bldGroup">Blood Group</label>
         <select name="Item" id="bldGroup">
+            <option value="">Select</option>
             <option value="A+">A+</option>
             <option value="B+">B+</option>
             <option value="AB+">AB+</option>
@@ -22,6 +23,19 @@
         <hr>
         <button type="submit">Submit</button>
     </form>
+    <script>
+        function validateBlood() {
+            let blood = document.getElementById("bldGroup").value;
+
+            if (blood === "") {
+                alert("Please select a blood group");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
 </body>
 
 </html>

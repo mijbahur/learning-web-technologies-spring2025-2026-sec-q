@@ -11,10 +11,10 @@
     <fieldset style="width: 200px;">
         <legend>Date of Birth</legend>
         <!-- <form>
-                    <input type="date">
-                </form> -->
+                <input type="date">
+            </form> -->
 
-        <form action="">
+        <form onsubmit="return validateDOB()">
             <table>
                 <tr align="center">
                     <td>dd&nbsp;&nbsp;</td>
@@ -33,6 +33,48 @@
         </form>
 
     </fieldset>
+    <script>
+        function validateDOB() {
+
+            let dd = document.getElementById("dd").value.trim();
+            let mm = document.getElementById("mm").value.trim();
+            let yyyy = document.getElementById("yyyy").value.trim();
+
+            if (dd === "" || mm === "" || yyyy === "") {
+                alert("All fields are required");
+                return false;
+            }
+
+            if (isNaN(dd) || isNaN(mm) || isNaN(yyyy)) {
+                alert("Date must be numeric");
+                return false;
+            }
+
+            dd = Number(dd);
+            mm = Number(mm);
+            yyyy = Number(yyyy);
+
+            if (dd < 1 || dd > 31) {
+                alert("Day must be between 1 and 31");
+                return false;
+            }
+
+            if (mm < 1 || mm > 12) {
+                alert("Month must be between 1 and 12");
+                return false;
+            }
+
+            if (yyyy < 1900 || yyyy > 2016) {
+                alert("Year must be between 1900 and 2016");
+                return false;
+            }
+
+            error.innerHTML = "";
+            alert("Date submitted successfully!");
+            return true;
+        }
+    </script>
+
 </body>
 
 </html>

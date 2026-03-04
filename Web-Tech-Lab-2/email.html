@@ -8,12 +8,44 @@
 </head>
 
 <body>
-    <form>
+    <form onsubmit="return validateEmail()">
         <label for="email">Email</label> <br>
         <input type="email" id="email">
         <i title="hint:exaple@gmail.com">i</i> <br>
+        <p id="error" style="color:red; font-size: 11px; margin: 0px; margin-bottom: 8px;"></p>
         <button type="submit">Submit</button>
     </form>
+
+     <script>
+        function validateEmail() {
+
+            let email = document.getElementById("email").value.trim();
+            let error = document.getElementById("error");
+
+            if (email === "") {
+                error.innerHTML = "Email cannot be empty";
+                return false;
+            }
+
+            if (!email.includes("@") || !email.includes(".")) {
+                error.innerHTML = "Invalid email format";
+                return false;
+            }
+
+            let atIndex = email.indexOf("@");
+            let dotIndex = email.lastIndexOf(".");
+
+            if (atIndex < 1 || dotIndex < atIndex + 2 || dotIndex === email.length - 1) {
+                error.innerHTML = "Invalid email format";
+                return false;
+            }
+
+            error.innerHTML = "";
+            alert("Email submitted successfully!");
+            return true;
+        }
+    </script>
+
 </body>
 
 </html>

@@ -8,9 +8,9 @@
 </head>
 
 <body>
-    <fieldset style="width: 250px;">
-        <Legend>Gender</Legend>
-        <form>
+    <form onsubmit="return validateGender()">
+        <fieldset style="width: 250px;">
+            <Legend>Gender</Legend>
             <input type="radio" name="gender" value="male" id="male">
             <label for="male">Male</label>
             <input type="radio" name="gender" value="female" id="female">
@@ -18,10 +18,36 @@
             <input type="radio" name="gender" value="other" id="other">
             <label for="other">Other</label>
             <br>
-        </form>
-    </fieldset>
-    <br>
-    <button type="submit">Submit</button>
+            <p id="error" style="color:red; font-size: 11px; margin: 0px;"></p>
+        </fieldset>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateGender() {
+
+            let genders = document.getElementsByName("gender");
+            let selected = false;
+
+            for (let i = 0; i < genders.length; i++) {
+                if (genders[i].checked) {
+                    selected = true;
+                    break;
+                }
+            }
+
+            if (!selected) {
+                document.getElementById("error").innerHTML =
+                    "Please select one gender";
+                return false;
+            }
+
+            document.getElementById("error").innerHTML = "";
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
 </body>
 
 </html>

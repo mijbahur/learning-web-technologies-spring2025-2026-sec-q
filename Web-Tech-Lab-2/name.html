@@ -8,11 +8,57 @@
 </head>
 
 <body>
-    <form>
+    <form onsubmit="return validateName()">
         <label for="name">Name</label><br>
         <input type="text" id="name"><br>
+        <p id="error" style="color:red; font-size: 10px; margin: 0px; margin-bottom: 8px;"></p>
         <button type="submit">Submit</button>
     </form>
+
+    <script>
+        function validateName() {
+
+            let name = document.getElementById("name").value.trim();
+            let error = document.getElementById("error");
+
+            if (name === "") {
+                error.innerHTML = "Name cannot be empty";
+                return false;
+            }
+
+            let words = name.split(" ");
+            if (words.length < 2) {
+                error.innerHTML = "Name must contain at least two words";
+                return false;
+            }
+
+            let firstChar = name[0];
+            if (!(firstChar >= 'A' && firstChar <= 'Z') &&
+                !(firstChar >= 'a' && firstChar <= 'z')) {
+                error.innerHTML = "Name must start with a letter";
+                return false;
+            }
+
+            for (let i = 0; i < name.length; i++) {
+                let ch = name[i];
+
+                if (!(
+                    (ch >= 'A' && ch <= 'Z') ||
+                    (ch >= 'a' && ch <= 'z') ||
+                    ch === '.' ||
+                    ch === '-' ||
+                    ch === ' '
+                )) {
+                    error.innerHTML = "Invalid character found";
+                    return false;
+                }
+            }
+
+            error.innerHTML = "";
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
 </body>
 
 </html>

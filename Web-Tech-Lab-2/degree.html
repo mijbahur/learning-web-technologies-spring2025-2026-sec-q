@@ -8,17 +8,34 @@
 </head>
 
 <body>
-    <fieldset style="width: 200px;">
-        <legend>Degree</legend>
-        <form>
+    <form onsubmit="return validateDegree()">
+        <fieldset style="width: 200px;">
+            <legend>Degree</legend>
             <input type="checkbox" id="SSC">
             <label for="SSC">SSC</label>
             <input type="checkbox" id="HSC">
             <label for="HSC">HSC</label>
             <input type="checkbox" id="BSc">
-            <label for="BSC">BSc</label>
-        </form>
-    </fieldset>
+            <label for="BSc">BSc</label>
+        </fieldset>
+        <button type="submit" style="margin-top: 7px;">Submit</button>
+    </form>
+    <script>
+        function validateDegree() {
+
+            let ssc = document.getElementById("SSC").checked;
+            let hsc = document.getElementById("HSC").checked;
+            let bsc = document.getElementById("BSc").checked;
+
+            if (!ssc && !hsc && !bsc) {
+                alert("Please select at least one degree");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
 </body>
 
 </html>
