@@ -52,6 +52,7 @@ button {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 18px;
+    font-weight: 500;
     color: white;
     background-color: #f44336;
     border:none;
@@ -64,4 +65,10 @@ button {
 
 button:hover {
     background-color: #e53935;
+}
+
+#scoreboard{
+    font-size:18px;
+    margin:10px;
+    font-weight:bold;
 }

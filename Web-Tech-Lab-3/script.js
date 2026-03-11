@@ -2,6 +2,12 @@ const cells = document.querySelectorAll(".cell");
 const statusText = document.getElementById("status");
 const resetBtn = document.getElementById("reset");
 
+const xScoreText = document.getElementById("xScore");
+const oScoreText = document.getElementById("oScore");
+
+let xScore = 0;
+let oScore = 0;
+
 
 let currentPlayer = "X";
 let board = ["", "", "", "", "", "", "", "", ""];
@@ -67,6 +73,14 @@ function checkWinner() {
             cells[condition[0]].classList.add("win");
             cells[condition[1]].classList.add("win");
             cells[condition[2]].classList.add("win");
+
+            if (currentPlayer === "X") {
+                xScore++;
+                xScoreText.textContent = xScore;
+            } else {
+                oScore++;
+                oScoreText.textContent = oScore;
+            }
 
             statusText.textContent = "Player " + currentPlayer + " Wins!";
             gameActive = false;
