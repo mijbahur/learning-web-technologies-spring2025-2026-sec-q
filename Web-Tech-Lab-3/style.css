@@ -47,6 +47,9 @@ h1 {
     background:#4CAF50;
     color:white;
 }
+.win:hover{
+    background: #61ad61;
+}
 
 button {
     margin-top: 20px;
