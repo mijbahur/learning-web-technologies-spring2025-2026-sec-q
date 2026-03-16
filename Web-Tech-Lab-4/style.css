@@ -1,0 +1,27 @@
+body{
+    font-family: Arial;
+    background-color: #f4f4f4;
+}
+
+.container{
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ccc;
+}
+
+h2{
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 10px;
+}
+
+input{
+    width: 286px;
+    padding: 5px;
+    margin-top: 5px;
+}
