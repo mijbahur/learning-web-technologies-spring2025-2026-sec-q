@@ -30,7 +30,6 @@ if(!isset($_COOKIE['status'])){
     </tr>
 </table>
 
-<!-- ================= BODY ================= -->
 <table border="1" width="100%" cellspacing="0" cellpadding="10">
 
     <tr>
