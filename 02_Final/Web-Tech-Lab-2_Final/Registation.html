@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+
+<body>
+
+<form method="post" action="regCheck.php">
+
+    <fieldset>
+        <legend>Registration</legend>
+
+        <table border="1" cellpadding="10" cellspacing="0" align="center">
+
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="name" value="" required></td>
+            </tr>
+
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email" value="" required></td>
+            </tr>
+
+            <tr>
+                <td>Username</td>
+                <td><input type="text" name="username" value="" required></td>
+            </tr>
+
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" value="" required></td>
+            </tr>
+
+            <tr>
+                <td>Confirm Password</td>
+                <td><input type="password" name="confirmPassword" value="" required></td>
+            </tr>
+
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="male" required> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <input type="radio" name="gender" value="other"> Other
+                </td>
+            </tr>
+
+            <tr>
+                <td>Date of Birth</td>
+                <td>
+                    <input type="text" name="dd" size="2" maxlength="2" required> /
+                    <input type="text" name="mm" size="2" maxlength="2" required> /
+                    <input type="text" name="yyyy" size="4" maxlength="4" required>
+                </td>
+            </tr>
+
+            <tr align="center">
+                <td colspan="2">
+                    <button type="submit" name="submit" value="Submit">Submit</button>
+                    <button type="reset" name="reset" value="Reset">Reset</button>
+                </td>
+            </tr>
+
+        </table>
+
+    </fieldset>
+</form>
+
+</body>
+</html>
