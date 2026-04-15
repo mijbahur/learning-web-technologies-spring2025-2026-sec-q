@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if(!isset($_COOKIE['status'])){
-    header('location: login.php');
+if(!isset($_SESSION['status'])){
+    header('location: login.html');
 }
 ?>
 
@@ -14,7 +14,7 @@ if(!isset($_COOKIE['status'])){
 
 <body>
 
-<table border="1" width="100%" cellspacing="0" cellpadding="10">
+<table border="1" width="50%" cellspacing="0" cellpadding="10">
 <tr>
     <td style="display:flex; justify-content:space-between; align-items:center;">
         <h2 style="color:green; margin:0;">XCompany</h2>
@@ -28,7 +28,7 @@ if(!isset($_COOKIE['status'])){
 </tr>
 </table>
 
-<table border="1" width="100%" cellspacing="0" cellpadding="10">
+<table border="1" width="50%" cellspacing="0" cellpadding="10">
 
 <tr>
     <td width="25%" valign="top">
@@ -50,7 +50,7 @@ if(!isset($_COOKIE['status'])){
         <fieldset>
             <legend><b>PROFILE</b></legend>
 
-            <table width="100%">
+            <table width="50%">
 
                 <tr>
                     <td width="60%">
@@ -78,7 +78,7 @@ if(!isset($_COOKIE['status'])){
 
 </table>
 
-<table border="1" width="100%" cellspacing="0" cellpadding="10">
+<table border="1" width="50%" cellspacing="0" cellpadding="10">
 <tr>
     <td align="center">
         Copyright &copy; 2017

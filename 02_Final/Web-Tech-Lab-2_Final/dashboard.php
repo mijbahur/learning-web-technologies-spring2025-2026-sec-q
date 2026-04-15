@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if(!isset($_COOKIE['status'])){
-    header('location: login.php');
+if(!isset($_SESSION['status'])){
+    header('location: login.html');
 }
 ?>
 
@@ -14,24 +14,20 @@ if(!isset($_COOKIE['status'])){
 
 <body>
 
-<table border="1" width="100%" cellspacing="0" cellpadding="10">
+<table border="1" width="50%" cellspacing="0" cellpadding="10" align = center>
     <tr>
-        <td style="display:flex; justify-content:space-between; align-items:center;">
-        
-            <h2 style="color:green; margin:0;">XCompany</h2>
+        <td colspan = 2>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h2 style="color:green; margin:0;">XCompany</h2>
 
-            <div>
-                Logged in as 
-                <a href="profile.php"><?php echo $_SESSION['user']['username']; ?></a> |
-                <a href="logout.php">Logout</a>
+                <div>
+                    Logged in as 
+                    <a href="profile.php"><?php echo $_SESSION['user']['username']; ?></a> |
+                    <a href="logout.php">Logout</a>
+                </div>
             </div>
-
         </td>
     </tr>
-</table>
-
-<table border="1" width="100%" cellspacing="0" cellpadding="10">
-
     <tr>
         <td width="25%" valign="top">
             <h3>Account</h3>
@@ -50,16 +46,11 @@ if(!isset($_COOKIE['status'])){
             <h2>Welcome <?php echo $_SESSION['user']['name']; ?></h2>
         </td>
     </tr>
-
-</table>
-
-<table border="1" width="100%" cellspacing="0" cellpadding="10">
     <tr>
-        <td align="center">
+        <td colspan=2 align="center">
             Copyright &copy; 2017
         </td>
     </tr>
 </table>
-
 </body>
 </html>
