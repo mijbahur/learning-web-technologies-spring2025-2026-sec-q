@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
             'image' => ''
         ];
 
-        echo "Registration Successful! <a href='login.php'>Login</a>";
+        echo "Registration Successful! <a href='login.html'>Login</a>";
     }
 
 }else{
