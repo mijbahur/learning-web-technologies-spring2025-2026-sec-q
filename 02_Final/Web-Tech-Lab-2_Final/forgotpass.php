@@ -47,9 +47,9 @@
             <td style="display:flex; justify-content:space-between;">
                 <h2 style="color:green;">XCompany</h2>
                 <div>
-                    <a href="home.php">Home</a> |
-                    <a href="login.php">Login</a> |
-                    <a href="registration.php">Registration</a>
+                    <a href="home.html">Home</a> |
+                    <a href="login.html">Login</a> |
+                    <a href="Registration.html">Registration</a>
                 </div>
             </td>
         </tr>

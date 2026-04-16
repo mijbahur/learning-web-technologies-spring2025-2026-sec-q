@@ -1,9 +1,9 @@
 <?php
-session_start();
+    session_start();
 
-if(!isset($_SESSION['status'])){
-    header('location: login.html');
-}
+    if(!isset($_SESSION['status'])){
+        header('location: login.html');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -14,77 +14,89 @@ if(!isset($_SESSION['status'])){
 
 <body>
 
-<table border="1" width="50%" cellspacing="0" cellpadding="10">
-<tr>
-    <td style="display:flex; justify-content:space-between; align-items:center;">
-        <h2 style="color:green; margin:0;">XCompany</h2>
+    <table border="1" width="50%" cellspacing="0" cellpadding="10">
+        <tr>
+            <td style="display:flex; justify-content:space-between; align-items:center;">
+                <h2 style="color:green; margin:0;">XCompany</h2>
 
-        <div>
-            Logged in as 
-            <a href="profile.php"><?php echo $_SESSION['user']['username']; ?></a> |
-            <a href="logout.php">Logout</a>
-        </div>
-    </td>
-</tr>
-</table>
+                <div>
+                    Logged in as 
+                    <a href="profile.php"><?php echo $_SESSION['user']['username']; ?></a> |
+                    <a href="logout.php">Logout</a>
+                </div>
+            </td>
+        </tr>
+    </table>
 
-<table border="1" width="50%" cellspacing="0" cellpadding="10">
+    <table border="1" width="50%" cellspacing="0" cellpadding="10">
 
-<tr>
-    <td width="25%" valign="top">
-        <h3>Account</h3>
-        <hr>
+        <tr>
+            <td width="25%" valign="top">
+                <h3>Account</h3>
+                <hr>
 
-        <ul>
-            <li><a href="dashboard.php">Dashboard</a></li>
-            <li><a href="profile.php">View Profile</a></li>
-            <li><a href="edit.php">Edit Profile</a></li>
-            <li><a href="upload.php">Change Profile Picture</a></li>
-            <li><a href="change_password.php">Change Password</a></li>
-            <li><a href="logout.php">Logout</a></li>
-        </ul>
-    </td>
+                <ul>
+                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="profile.php">View Profile</a></li>
+                    <li><a href="edit.php">Edit Profile</a></li>
+                    <li><a href="profilePic.php">Change Profile Picture</a></li>
+                    <li><a href="change_password.php">Change Password</a></li>
+                    <li><a href="logout.php">Logout</a></li>
+                </ul>
+            </td>
 
-    <td valign="top">
+            <td valign="top">
 
-        <fieldset>
-            <legend><b>PROFILE</b></legend>
+                <fieldset>
+                    <legend><b>PROFILE</b></legend>
 
-            <table width="50%">
+                    <table width="50%">
 
-                <tr>
-                    <td width="60%">
-                        Name : <?php echo $_SESSION['user']['name']; ?> <hr>
-                        Email : <?php echo $_SESSION['user']['email']; ?> <hr>
-                        Gender : <?php echo $_SESSION['user']['gender']; ?> <hr>
-                        Date of Birth : <?php echo $_SESSION['user']['dob']; ?>
-                    </td>
+                        <tr>
+                            <td width="60%">
+                                Name : <?php echo $_SESSION['user']['name']; ?> <hr>
+                                Email : <?php echo $_SESSION['user']['email']; ?> <hr>
+                                Gender : <?php echo $_SESSION['user']['gender']; ?> <hr>
+                                Date of Birth : <?php echo $_SESSION['user']['dob']; ?>
+                            </td>
 
-                    <td align="center">
-                        <img src="learning-web-technologies-spring2025-2026-sec-q\02_Final\Web-Tech-Lab-2_Final\Upload/<?php echo $_SESSION['user']['image'] ? $_SESSION['user']['image'] : 'default.png'; ?>" width="120"><br>
-                        <a href="upload.php">Change</a>
-                    </td>
-                </tr>
+                            <td align="center">
+                                <?php
+                                    $image = 'default.png';
 
-            </table>
+                                    if(isset($_SESSION['user']['image']) && $_SESSION['user']['image'] != ""){
+                                        
+                                        $path = "Upload/" . $_SESSION['user']['image'];
 
-            <hr>
-            <a href="edit.php">Edit Profile</a>
+                                        if(file_exists($path)){
+                                            $image = $_SESSION['user']['image'];
+                                        }
+                                    }
+                                ?>
+                                <img src="Upload/<?php echo $image; ?>" alt = "Profile Picture" width="220"  style="padding-left: 40px;"><br>
+                                <a href="profilePic.php" style="padding-left: 40px;">Change</a>
+                            </td>
+                        </tr>
 
-        </fieldset>
+                    </table>
 
-    </td>
-</tr>
+                    <hr>
+                    <a href="edit.php">Edit Profile</a>
 
-</table>
+                </fieldset>
 
-<table border="1" width="50%" cellspacing="0" cellpadding="10">
-<tr>
-    <td align="center">
-        Copyright &copy; 2017
-    </td>
-</tr>
-</table>
+            </td>
+        </tr>
+
+    </table>    
+
+    <table border="1" width="50%" cellspacing="0" cellpadding="10">
+        <tr>
+            <td align="center">
+                Copyright &copy; 2017
+            </td>
+        </tr>
+    </table>
 
 </body>
 </html>

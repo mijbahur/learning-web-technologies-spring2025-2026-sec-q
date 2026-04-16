@@ -43,7 +43,16 @@ if(!isset($_SESSION['status'])){
             </ul>
         </td>
         <td valign="top">
-            <h2>Welcome <?php echo $_SESSION['user']['name']; ?></h2>
+            
+            <form method="post" action="uploadCheck.php" enctype="multipart/form-data">
+                <fieldset style="width:300px;">
+                    <legend><b>PROFILE PICTURE</b></legend>
+                    <input type="file" name="profilePic" accept=".jpg, .jpeg, .png"><br>
+                    <br><input type="submit" name="submit" value="Upload">
+                </fieldset>
+            </form>
+
+
         </td>
     </tr>
     <tr>

@@ -39,7 +39,7 @@ if(!isset($_SESSION['status'])){
             <li><a href="dashboard.php">Dashboard</a></li>
             <li><a href="profile.php">View Profile</a></li>
             <li><a href="edit.php">Edit Profile</a></li>
-            <li><a href="upload.php">Change Profile Picture</a></li>
+            <li><a href="profilePic.php">Change Profile Picture</a></li>
             <li><a href="change_password.php">Change Password</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
