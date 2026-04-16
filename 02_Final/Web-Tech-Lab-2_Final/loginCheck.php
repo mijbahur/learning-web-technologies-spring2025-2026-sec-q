@@ -1,30 +1,37 @@
 <?php
 session_start();
 
-if(isset($_REQUEST['submit'])){
+if (isset($_REQUEST['submit'])) {
 
     $username = $_REQUEST['username'];
     $password = $_REQUEST['password'];
 
-    if($username == "" || $password == ""){
+    if ($username == "" || $password == "") {
         echo "null username or password!";
-    }else{
+    } else {
 
-        if(isset($_SESSION['user']) && 
-           $username == $_SESSION['user']['username'] && 
-           $password == $_SESSION['user']['password']){
-
+        if (
+            isset($_SESSION['user']) &&
+            $username == $_SESSION['user']['username'] && $password == $_SESSION['user']['password']
+        ) {
             $_SESSION['status'] = true;
-            setcookie('status', 'true', time()+3600, '/');
+
+            if (isset($_POST['remember'])) {
+                setcookie('username', $username, time() + 86400, '/');
+                setcookie('password', $password, time() + 86400, '/');
+            } else {
+                setcookie('username', '', time() - 10, '/');
+                setcookie('password', '', time() - 10, '/');
+            }
 
             header('location: dashboard.php');
 
-        }else{
+        } else {
             echo "invalid user!";
         }
     }
 
-}else{
+} else {
     header('location: login.html');
 }
 ?>
