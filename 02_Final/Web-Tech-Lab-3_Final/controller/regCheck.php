@@ -32,6 +32,6 @@
         }
 
     }else{
-        echo "Invalid Request!";
+        header('location: Registration.html');
     }
 ?>
