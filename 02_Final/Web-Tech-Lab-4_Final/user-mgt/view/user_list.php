@@ -22,7 +22,7 @@
 <body>
     <h1>User list </h1>
     <a href='home.php'>Back</a> |
-    <a href='../controller/logout.php'>Add User</a>
+    <a href='addUser.php'>Add User</a>
     <a href='../controller/logout.php'>Logout</a>
     <br>
 

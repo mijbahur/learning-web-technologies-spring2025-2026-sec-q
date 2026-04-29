@@ -6,7 +6,7 @@
 <body>
 
     <h2>Add New User</h2>
-    <form method="post" action="regCheck.php">
+    <form method="post" action="../controller/regCheck.php">
 
         <fieldset style="width: 50%; margin: 0 auto;">
             <legend>Add User</legend>
